@@ -79,7 +79,7 @@ https://templatemo.com/tm-541-host-cloud
           <input name="password" type="password" id="form1Example4" class="form-control" placeholder="Password" />
           <!-- <br><a href="#!">Forgot password?</a><br><br> -->
           <button style="margin-left: 2rem;"  type="submit" class="btn btn-primary"
-            
+            onclick="submit()"
             >SignUp</button>
           <div style="margin-left: 2rem;"  type="submit">
             <p>Have an account?<a href="./Login.html">Login</a></p>
@@ -94,7 +94,10 @@ https://templatemo.com/tm-541-host-cloud
           var email=document.getElementById("form1Example3").value;
           var password=document.getElementById("form1Example4").value;
           var data={name,contact,email,password};
-          console.log(fetch("http://localhost:4000",{method:"get"}));
+          console.log(JSON.stringify(data));
+          fetch("http://localhost:4000",{method:"get"})
+            .then(res=>console.log(res.json));
+          // console.log();
         //   fetch("http://localhost:4000/SignUp",{
         //     method:"post",
         //     headers:{
